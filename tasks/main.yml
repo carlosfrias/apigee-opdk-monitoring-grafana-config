@@ -1,0 +1,15 @@
+---
+# tasks file for apigee-opdk-monitoring-grafana-config
+- name: Update telegraph attributes
+  cache:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_items:
+  - { key: 'grafana_response_file', value: "{{ opdk_installer_path }}/apigee-dashboard-response-grafana.conf" }
+
+- name: Create telegraph response file
+  template:
+    src: apigee-dashboard-response-grafana.conf.j2
+    dest: "{{ grafana_response_file }}"
+
+
