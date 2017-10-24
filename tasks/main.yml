@@ -9,9 +9,12 @@
   - { key: 'influxdb_ip', value: "{{ hostvars[groups['influxdb'][0]][interface_name].ipv4.address }}" }
   - { key: 'influxdb_port', value: "{{ influxdb_port }}" }
 
-- name: Create telegraph response file
+- name: Create grafana response file
   template:
     src: apigee-dashboard-response-grafana.conf.j2
     dest: "{{ grafana_response_file }}"
+    owner: '{{ opdk_user_name }}'
+    group: '{{ opdk_group_name }}'
+
 
 
