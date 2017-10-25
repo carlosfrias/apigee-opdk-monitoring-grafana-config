@@ -1,4 +1,8 @@
 INFLUXDB_HOST={{ influxdb_ip }}		# Specify the IP address or DNS name of the InfluxDB node
 INFLUXDB_PORT={{ influxdb_port }}			# InfluxDB API port used by Grafana datasource. Specify 8086.
+{% if grafana_username is defined %}
 GRAFANA_USERNAME={{ grafana_username }}	# Grafana username for logging in to the dashboard UI.
+{% endif %}
+{% if grafana_password is defined %}
 GRAFANA_PASSWORD={{ grafana_password }}	# Grafana password for logging in to the dashboard UI.
+{% endif %}
