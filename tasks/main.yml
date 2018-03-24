@@ -10,6 +10,7 @@
   - { key: 'influxdb_port', value: "{{ influxdb_port }}" }
 
 - name: Create grafana response file
+  become: yes
   template:
     src: apigee-dashboard-response-grafana.conf.j2
     dest: "{{ grafana_response_file }}"
